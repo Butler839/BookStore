@@ -1,64 +1,133 @@
-# BookStore - Django E-Commerce App
+# 📚 BookStore - Django E-Commerce App
 
-A full-stack bookstore application built with **Django**, featuring full user auth, shopping cart functionality, payment integration, and a clean templating system for dynamic page rendering.
+A full-stack bookstore application built with **Django**, featuring full user auth, shopping cart functionality, Stripe integration, and a clean templating system for dynamic rendering.
 
 ---
 
-## Live Demo (optional)
+## 🔗 Live Demo (Optional)
 
 **Frontend + Backend (Django):** [Heroku URL here]
 
 ---
 
-## Features
+## ✨ Features
 
-- **Browse Books** – View book listings, details, and genres dynamically
--  **Shopping Cart** – Add/remove books, adjust quantities, view total costs
--  **User Authentication** – Sign up, log in, manage profile, and track orders
--  **Payments Integration** – Fully functioning checkout flow (Stripe or PayPal)
--  **Modular App Design** – Books, users, cart, and payments are separate Django apps
--  **Media Support** – Book covers and other uploaded assets served dynamically
--  **Admin Panel** – Full Django admin for managing books, users, and orders
-
----
-
-## Tech Stack
-
-- Python 3 + Django
-- SQLite (default dev DB, easily upgradable to PostgreSQL)
-- HTML5 + Django Templating
-- Bootstrap / CSS for styling
-- Gunicorn + Heroku-ready (`Procfile` included)
-- Pipenv / virtualenv compatible (`requirements.txt` provided)
+- **🛒 Shopping Cart** – Add/remove books, view total, checkout with Stripe
+- **🔐 Authentication** – Signup, login, logout, view + edit user profile
+- **📖 Book Management** – Browse all books, view details, genres
+- **💳 Stripe Payments** – Full checkout flow with test/live keys
+- **📂 Modular App Design** – `books`, `users`, `cart`, `payments` as separate apps
+- **📸 Media Support** – Dynamic book covers with file uploads
+- **⚙️ Admin Dashboard** – Manage books, users, and purchases
 
 ---
 
-## Running Locally
+## ⚙️ Tech Stack
 
-### Clone the repo:
+- **Python 3.11** + Django 5.x
+- SQLite (default dev DB)
+- HTML + Django Templating
+- CSS (light Bootstrap-style)
+- Gunicorn + Heroku-ready
+- Virtualenv / Pip (`requirements.txt` included)
+
+---
+
+## 🛠 Running Locally
+
+### 1. Clone the repo
 ```bash
 git clone https://github.com/Butler839/BookStore
 cd BookStore
 ```
 
-### Set up the environment:
+---
+
+### 2. Set up virtual environment
 ```bash
 python -m venv env
-source env/bin/activate  # on Windows: env\Scripts\activate
+source env/bin/activate  # Windows: env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Run the server:
-```bash
-python manage.py migrate
-python manage.py runserver
+---
+
+### 3. Add a `.env` file
+
+Create a `.env` file in the root with the following:
+
+```ini
+SECRET_KEY=your-django-secret-key
+STRIPE_SECRET_KEY=your-stripe-secret
+STRIPE_PUBLISHABLE_KEY=your-stripe-publishable
+STRIPE_ENDPOINT_SECRET=your-stripe-webhook-secret
+DEBUG=True
 ```
 
 ---
 
-## Deployment Notes
-- Use `Procfile` and `gunicorn` for Heroku deployment
-- Set up `ALLOWED_HOSTS` and `DEBUG` properly for production
-- Configure `STATIC_ROOT` and `MEDIA_ROOT` for assets on cloud
+### 4. Run migrations & seed sample data (optional)
+
+```bash
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py shell < load_books.py  # optional dummy data
+```
 
 ---
+
+### 5. Run the server
+
+```bash
+python manage.py runserver
+```
+
+Visit: `http://127.0.0.1:8000/`
+
+---
+
+## 🔐 Admin Access
+
+```bash
+http://127.0.0.1:8000/admin/
+```
+
+Use your superuser credentials to log in.
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+## 📌 Notes
+
+- Make sure `.env` is in your `.gitignore`
+- Stripe secrets are required to run checkout
+- Login and account pages are fully functional
+- All views are styled and responsive
+
+---
+ ## 🧪 Stripe Checkout (Demo Note)
+
+To test the full Stripe checkout experience, use the live Heroku demo:
+
+👉 [https://your-app-name.herokuapp.com](https://your-app-name.herokuapp.com)
+
+> Stripe keys are securely stored in Heroku and are **not included** in the public repository for security reasons.
+
+If you're running this project locally and want Stripe to work, you'll need to:
+1. Create a `.env` file in the root directory.
+2. Add your own Stripe keys (test or live) like so:
+
+```ini
+STRIPE_SECRET_KEY=your-secret
+STRIPE_PUBLISHABLE_KEY=your-pub-key
+STRIPE_ENDPOINT_SECRET=your-webhook-secret
+```
+3. Don't put actual card information it is not meant to checkout fully
