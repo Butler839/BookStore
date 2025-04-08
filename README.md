@@ -6,7 +6,7 @@ A full-stack bookstore application built with **Django**, featuring full user au
 
 ## 🔗 Live Demo (Optional)
 
-**Frontend + Backend (Django):** [Heroku URL here]
+**Frontend + Backend (Django):** (https://book-store5643-32cde4e777bf.herokuapp.com/)
 
 ---
 
