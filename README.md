@@ -117,7 +117,7 @@ Use your superuser credentials to log in.
 
 To test the full Stripe checkout experience, use the live Heroku demo:
 
-👉 [https://your-app-name.herokuapp.com]([https://your-app-name.herokuapp.com](https://book-store5643-32cde4e777bf.herokuapp.com))
+👉 (https://book-store5643-32cde4e777bf.herokuapp.com))
 
 > Stripe keys are securely stored in Heroku and are **not included** in the public repository for security reasons.
 
